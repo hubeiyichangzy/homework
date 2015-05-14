@@ -1,0 +1,57 @@
+1. introduction:
+
+This software could fit a series of activities into several time slots, and to save time as much as possible. This software distinguishes itself from others in that: it uses A star planning
+algorithm, which is quite a high efficiency artificial intelligence algorithm to do planning, and it is open source as well, the utils.AStarFramework and utils.State could form a highly reusable
+framework for any purpose of the application of A star algorithm. 
+
+OS: Linux
+
+2. Usage:
+
+1) run ./compile.sh
+2) create a property file, save it at PROP_PATH(refer to 3)
+3) create a file containing the input, which describes the activities to be involved (refer to 4)
+4) run ./run.sh PROP_PATH and get the result
+
+3. configurations:
+1) JAVA_HOME must be set, to specify the path of the JDK installation
+2) a property file must be created, with these two properties identified:
+   1)sessions: a string delimited by ";", which represents a series of consecutive period of time, such as morning, afternoon
+               Syntax: beginTime1-endTime1;beginTime2-endTime2;...
+               For example:
+               session=9:00-12:00;13:00-16:00
+			   which denotes two periods of time: one is from 9:00 to 12:00, the other is from 13:00 till 16:00
+			   note that the time periods should not intersect, and non-descreasing
+   2)desc.file: a string represents the path of the file which describes the activities to be involved,the example of the format of such a file could be found in 4,for example:
+               desc.file=/opt/desc.txt
+			   
+4. Example of activity file:
+[root@bjr610-04 meeting]# cat descs.txt 
+Writing Fast Tests Against Enterprise Rails 60min
+Overdoing it in Python 45min
+Lua for the Masses 30min
+Ruby Errors from Mismatched Gem Versions 45min
+Common Ruby Errors 45min
+Rails for Python Developers lightning
+Communicating Over Distance 60min
+Accounting-Driven Development 45min
+Woah 30min
+Sit Down and Write 30min
+Pair Programming vs Noise 45min
+Rails Magic 60min
+Ruby on Rails: Why We Should Move On 60min
+Clojure Ate Scala (on my project) 45min
+Programming in the Boondocks of Seattle 30min
+Ruby vs. Clojure for Back-End Development 30min
+Ruby on Rails Legacy App Maintenance 60min
+A World Without HackerNews 30min
+
+5. package info:
+1) src: source code
+2) compile.sh a shell script to compile the source code and form a build folder
+3) run.sh: a shell script to run cases
+4) desc.txt: an example of activity file in 3
+5) meetingproperties.properties: an example of configuration file in 2
+
+6. quick test: 
+you could run ./run.sh meetingproperties.properties to get a quick test of the example input
